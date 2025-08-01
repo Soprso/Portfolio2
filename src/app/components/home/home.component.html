@@ -1,16 +1,20 @@
 <section id="home" class="min-h-screen flex items-center pt-20">
-  <div class="max-w-screen-2xl mx-auto px-4 md:px-8 w-full grid grid-cols-1 md:grid-cols-2 gap-8">
+  <div class="max-w-screen-2xl mx-auto px-4 md:px-8 w-full grid grid-cols-1 md:grid-cols-[60%_40%] gap-8">
 
     <!-- Left Panel -->
     <div class="flex flex-col justify-center items-start gap-4 z-10">
       <h1 class="text-4xl md:text-6xl font-bold text-white">
         Hi, I'm <span class="text-white">Soumyadeep</span>
       </h1>
-      <p class="text-xl md:text-2xl text-white">.NET Developer</p>
-      <p class="text-base text-white">
-        With 8.5 years of experience in .NET development and Application Support across Banking, Financial Services,
-        Insurance, Travel & Hospitality.
+      <p class="typed-text text-xl md:text-4xl font-semibold text-transparent relative">
+        <span class="text-content">.NET Developer</span>
+        <span class="cursor">|</span>
       </p>
+      <p class="text-base text-white mt-8 mb-16 mx-0">
+        I have 8.5 years of experience in .NET development and application support.
+        My work spans across Banking, Financial Services, Insurance, and Travel & Hospitality domains.
+      </p>
+
 
       <!-- Social + Resume -->
       <div class="flex items-center gap-4 mt-6 z-10">
@@ -32,7 +36,7 @@
         </a>
 
         <!-- Resume Download -->
-        <a href="src/assets/resume.pdf" download
+        <a href="resume.pdf" download
           class="group flex items-center gap-2 px-4 py-2 border border-blue-400 text-blue-400 rounded relative overflow-hidden hover:text-gray-800 transition duration-200">
           <span
             class="absolute left-0 top-0 h-full w-0 bg-blue-400 transition-all duration-800 group-hover:w-full z-0"></span>
@@ -45,9 +49,11 @@
     </div>
 
     <!-- Right Panel -->
-    <div class="flex justify-center items-center z-0">
-      <img src="assets/img.jpg" alt="Illustration" class="rounded-xl shadow-lg w-full max-w-sm object-contain" />
+    <div class="flex justify-center items-center z-0 p-4">
+      <img src="hero.png" alt="Illustration"
+        class="rounded-2xl w-full max-w-md object-contain transition duration-800 ease-in-out brightness-40 hover:brightness-100" />
     </div>
+
 
   </div>
 </section>
