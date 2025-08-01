@@ -1,1 +1,38 @@
-/* You can add global styles to this file, and also import other style files */
+
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+
+/* fallback if you're not using Tailwind's @apply in global CSS */
+body {
+  background: linear-gradient(to right, #142244, #000000); /* blue-950 to black */
+  color: white;
+}
+
+
+/* Override Angular Material button colors */
+::ng-deep a[mat-stroked-button] {
+  color: white !important;
+  border-color: white !important;
+  padding: 0.5rem 1rem;
+  border-radius: 0.375rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+}
+
+::ng-deep a[mat-stroked-button]:hover {
+  background-color: #60a5fa !important; /* Tailwind's blue-400 */
+  border-color: #60a5fa !important;
+  color: white !important;
+}
+
+/* Material icon override */
+::ng-deep mat-icon {
+  font-size: 20px;
+  vertical-align: middle;
+  display: inline-flex;
+}
+
+
