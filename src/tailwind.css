@@ -6,5 +6,21 @@
   --font-poppins: "Poppins", sans-serif;
 }
 
+.tab-btn {
+  @apply text-lg font-semibold pb-2 cursor-pointer text-gray-400 transition duration-300;
+}
+
+.active-tab {
+  @apply text-[#60a5fa] border-b-2 border-[#60a5fa];
+}
+
+.resume-card {
+  @apply bg-white/5 p-6 rounded-xl shadow-md transition transform duration-300;
+}
+
+.resume-card:hover {
+  @apply scale-105 shadow-lg bg-white/10 border border-[#60a5fa];
+}
+
 
 @import "tailwindcss";

@@ -1,11 +1,27 @@
-<header class=" fixed top-0 left-0 w-full z-50">
+<header class="fixed top-0 left-0 w-full z-50">
   <div class="flex items-center justify-between max-w-7xl mx-auto px-4 py-3">
     <h1 class="text-xl font-bold text-gray-300">Soumyadeep.</h1>
     <nav class="flex gap-6">
-      <a href="#home" class="text-gray-300 hover:text-blue-400 font-medium transition-colors duration-200">Home</a>
-      <a href="#work" class="text-gray-300 hover:text-blue-400 font-medium transition-colors duration-200">Work</a>
-      <a href="#projects" class="text-gray-300 hover:text-blue-400 font-medium transition-colors duration-200">Projects</a>
-      <a href="#contact" class="text-gray-300 hover:text-blue-400 font-medium transition-colors duration-200">Contact</a>
+      <a (click)="setActive('home')"
+         [ngClass]="activeSection === 'home' ? 'text-blue-400' : 'text-gray-300'"
+         class="font-medium transition-colors duration-200 cursor-pointer">
+        Home
+      </a>
+      <a (click)="setActive('work')"
+         [ngClass]="activeSection === 'work' ? 'text-blue-400' : 'text-gray-300'"
+         class="font-medium transition-colors duration-200 cursor-pointer">
+        Work
+      </a>
+      <a (click)="setActive('projects')"
+         [ngClass]="activeSection === 'projects' ? 'text-blue-400' : 'text-gray-300'"
+         class="font-medium transition-colors duration-200 cursor-pointer">
+        Projects
+      </a>
+      <a (click)="setActive('contact')"
+         [ngClass]="activeSection === 'contact' ? 'text-blue-400' : 'text-gray-300'"
+         class="font-medium transition-colors duration-200 cursor-pointer">
+        Contact
+      </a>
     </nav>
   </div>
 </header>

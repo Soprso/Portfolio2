@@ -1,0 +1,184 @@
+<section id="work" class="min-h-screen px-4 md:px-8 py-16 text-white">
+    <!-- Heading -->
+    <h2 class="text-4xl font-bold text-center mb-10">Resume</h2>
+
+    <!-- Tabs -->
+    <div class="w-full mb-10">
+        <div class="flex justify-between w-full text-center">
+            <button class="flex-1 pb-2 text-lg font-semibold transition-colors duration-300 hover:cursor-pointer"
+                [ngClass]="{
+        'text-blue-400': activeTab === 'experience', 
+        'text-gray-400 hover:text-white': activeTab !== 'experience'
+      }" (click)="setTab('experience')">
+                Experience
+            </button>
+
+            <button class="flex-1 pb-2 text-lg font-semibold transition-colors duration-300 hover:cursor-pointer"
+                [ngClass]="{
+        'text-blue-400': activeTab === 'skills', 
+        'text-gray-400 hover:text-white': activeTab !== 'skills'
+      }" (click)="setTab('skills')">
+                Skills
+            </button>
+
+            <button class="flex-1 pb-2 text-lg font-semibold transition-colors duration-300 hover:cursor-pointer"
+                [ngClass]="{
+        'text-blue-400': activeTab === 'education', 
+        'text-gray-400 hover:text-white': activeTab !== 'education'
+      }" (click)="setTab('education')">
+                Education
+            </button>
+        </div>
+
+        <!-- Full-width underline container -->
+        <div class="relative w-full mt-1">
+            <!-- Gray baseline -->
+            <div class="absolute bottom-0 left-0 w-full h-[2px] bg-gray-600"></div>
+            <!-- Blue underline that moves -->
+            <div class="absolute bottom-0 h-[2px] bg-blue-400 transition-all duration-300" [ngStyle]="{
+        width: '33.33%',
+        left: activeTab === 'experience' ? '0%' : 
+              activeTab === 'skills' ? '33.33%' : 
+              '66.66%'
+      }">
+            </div>
+        </div>
+    </div>
+
+    <!-- Content Grid -->
+        <!-- Experience Section -->
+        <div *ngIf="activeTab === 'experience'" class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="resume-card relative overflow-hidden group hover:cursor-pointer" data-aos="fade-up" data-aos-delay="100">
+                <span
+                    class="absolute left-0 top-0 h-full w-0 bg-blue-400 transition-all duration-800 group-hover:w-full z-0"></span>
+                <div class="relative z-10 p-6">
+                    <p class="text-[#60a5fa] font-medium">2022 – Present</p>
+                    <h3 class="text-xl font-semibold group-hover:text-gray-800 transition-colors duration-300">Frontend
+                        Developer</h3>
+                    <p class="text-gray-300 text-sm group-hover:text-gray-900 transition-colors duration-300">Google</p>
+                    <p class="text-gray-400 mt-2 group-hover:text-gray-900 transition-colors duration-300">
+                        Worked on scalable UI systems using Angular and Tailwind CSS.
+                    </p>
+                </div>
+            </div>
+
+            <div class="resume-card relative overflow-hidden group hover:cursor-pointer" data-aos="fade-up" data-aos-delay="200">
+                <span
+                    class="absolute left-0 top-0 h-full w-0 bg-blue-400 transition-all duration-800 group-hover:w-full z-0"></span>
+                <div class="relative z-10 p-6">
+                    <p class="text-[#60a5fa] font-medium">2021 – 2022</p>
+                    <h3 class="text-xl font-semibold group-hover:text-gray-800 transition-colors duration-300">Full
+                        Stack Developer</h3>
+                    <p class="text-gray-300 text-sm group-hover:text-gray-900 transition-colors duration-300">YouTube
+                    </p>
+                    <p class="text-gray-400 mt-2 group-hover:text-gray-900 transition-colors duration-300">
+                        Built dynamic applications with Angular, Node.js, and MongoDB.
+                    </p>
+                </div>
+            </div>
+
+            <div class="resume-card relative overflow-hidden group hover:cursor-pointer" data-aos="fade-up" data-aos-delay="300">
+                <span
+                    class="absolute left-0 top-0 h-full w-0 bg-blue-400 transition-all duration-800 group-hover:w-full z-0"></span>
+                <div class="relative z-10 p-6">
+                    <p class="text-[#60a5fa] font-medium">2020 – 2021</p>
+                    <h3 class="text-xl font-semibold group-hover:text-gray-800 transition-colors duration-300">Backend
+                        Developer</h3>
+                    <p class="text-gray-300 text-sm group-hover:text-gray-900 transition-colors duration-300">Apple Inc.
+                    </p>
+                    <p class="text-gray-400 mt-2 group-hover:text-gray-900 transition-colors duration-300">
+                        Developed API services and optimized server performance.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Skills Section -->
+        <div *ngIf="activeTab === 'skills'" class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="resume-card relative overflow-hidden group hover:cursor-pointer" data-aos="fade-up" data-aos-delay="100">
+                <span
+                    class="absolute left-0 top-0 h-full w-0 bg-blue-400 transition-all duration-800 group-hover:w-full z-0"></span>
+                <div class="relative z-10 p-6">
+                    <h3 class="text-xl font-semibold group-hover:text-gray-800 transition-colors duration-300">Angular
+                    </h3>
+                    <p class="text-gray-400 mt-2 group-hover:text-gray-900 transition-colors duration-300">
+                        Advanced proficiency with 8.5 years of experience.
+                    </p>
+                </div>
+            </div>
+
+            <div class="resume-card relative overflow-hidden group hover:cursor-pointer" data-aos="fade-up" data-aos-delay="200">
+                <span
+                    class="absolute left-0 top-0 h-full w-0 bg-blue-400 transition-all duration-800 group-hover:w-full z-0"></span>
+                <div class="relative z-10 p-6">
+                    <h3 class="text-xl font-semibold group-hover:text-gray-800 transition-colors duration-300">.NET</h3>
+                    <p class="text-gray-400 mt-2 group-hover:text-gray-900 transition-colors duration-300">
+                        Experienced in building enterprise-grade applications.
+                    </p>
+                </div>
+            </div>
+
+            <div class="resume-card relative overflow-hidden group hover:cursor-pointer" data-aos="fade-up" data-aos-delay="300">
+                <span
+                    class="absolute left-0 top-0 h-full w-0 bg-blue-400 transition-all duration-800 group-hover:w-full z-0"></span>
+                <div class="relative z-10 p-6">
+                    <h3 class="text-xl font-semibold group-hover:text-gray-800 transition-colors duration-300">Tailwind
+                        CSS</h3>
+                    <p class="text-gray-400 mt-2 group-hover:text-gray-900 transition-colors duration-300">
+                        Skilled at creating responsive, modern UI designs.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Education Section -->
+        <div *ngIf="activeTab === 'education'" class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="resume-card relative overflow-hidden group hover:cursor-pointer" data-aos="fade-up" data-aos-delay="100">
+                <span
+                    class="absolute left-0 top-0 h-full w-0 bg-blue-400 transition-all duration-800 group-hover:w-full z-0"></span>
+                <div class="relative z-10 p-6">
+                    <p class="text-[#60a5fa] font-medium">2012 – 2015</p>
+                    <h3 class="text-xl font-semibold group-hover:text-gray-800 transition-colors duration-300">Bachelor
+                        of Data Science</h3>
+                    <p class="text-gray-300 text-sm group-hover:text-gray-900 transition-colors duration-300">Codehal
+                        University</p>
+                    <p class="text-gray-400 mt-2 group-hover:text-gray-900 transition-colors duration-300">
+                        Specialized in software engineering and data structures.
+                    </p>
+                </div>
+            </div>
+
+            <div class="resume-card relative overflow-hidden group hover:cursor-pointer" data-aos="fade-up" data-aos-delay="200">
+                <span
+                    class="absolute left-0 top-0 h-full w-0 bg-blue-400 transition-all duration-800 group-hover:w-full z-0"></span>
+                <div class="relative z-10 p-6">
+                    <p class="text-[#60a5fa] font-medium">2015 – 2017</p>
+                    <h3 class="text-xl font-semibold group-hover:text-gray-800 transition-colors duration-300">Master of
+                        Computer Science</h3>
+                    <p class="text-gray-300 text-sm group-hover:text-gray-900 transition-colors duration-300">Codehal
+                        University</p>
+                    <p class="text-gray-400 mt-2 group-hover:text-gray-900 transition-colors duration-300">
+                        Focused on advanced algorithms and distributed systems.
+                    </p>
+                </div>
+            </div>
+
+            <div class="resume-card relative overflow-hidden group hover:cursor-pointer" data-aos="fade-up" data-aos-delay="300">
+                <span
+                    class="absolute left-0 top-0 h-full w-0 bg-blue-400 transition-all duration-800 group-hover:w-full z-0"></span>
+                <div class="relative z-10 p-6">
+                    <p class="text-[#60a5fa] font-medium">2017 – 2018</p>
+                    <h3 class="text-xl font-semibold group-hover:text-gray-800 transition-colors duration-300">Doctor of
+                        Engineering</h3>
+                    <p class="text-gray-300 text-sm group-hover:text-gray-900 transition-colors duration-300">Codehal
+                        University</p>
+                    <p class="text-gray-400 mt-2 group-hover:text-gray-900 transition-colors duration-300">
+                        Conducted research in high-performance computing.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+
+
+</section>
