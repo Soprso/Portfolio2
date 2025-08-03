@@ -1,4 +1,4 @@
-<section id="work" class="min-h-screen px-4 md:px-8 py-16 text-white">
+<section id="work" class="relative min-h-screen px-4 md:px-8 py-16 text-white">
     <!-- Heading -->
     <h2 class="text-4xl font-bold text-center mb-10">Resume</h2>
 
@@ -46,138 +46,261 @@
     </div>
 
     <!-- Content Grid -->
-        <!-- Experience Section -->
-        <div *ngIf="activeTab === 'experience'" class="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div class="resume-card relative overflow-hidden group hover:cursor-pointer" data-aos="fade-up" data-aos-delay="100">
-                <span
-                    class="absolute left-0 top-0 h-full w-0 bg-blue-400 transition-all duration-800 group-hover:w-full z-0"></span>
-                <div class="relative z-10 p-6">
-                    <p class="text-[#60a5fa] font-medium">2022 – Present</p>
-                    <h3 class="text-xl font-semibold group-hover:text-gray-800 transition-colors duration-300">Frontend
-                        Developer</h3>
-                    <p class="text-gray-300 text-sm group-hover:text-gray-900 transition-colors duration-300">Google</p>
-                    <p class="text-gray-400 mt-2 group-hover:text-gray-900 transition-colors duration-300">
-                        Worked on scalable UI systems using Angular and Tailwind CSS.
-                    </p>
+    <!-- Experience Section -->
+    <div *ngIf="activeTab === 'experience'" class="timeline-container">
+
+        <!-- Center Timeline Line -->
+        <div class="timeline-line"></div>
+
+        <!-- Timeline Items -->
+        <div class="timeline">
+
+            <!-- Item 1 (Left) -->
+            <div class="timeline-item left" data-aos="fade-right">
+                <div class="timeline-content group" (click)="openModal('technicalLead')">
+                    <!-- Hover Overlay -->
+                    <span class="hover-overlay"></span>
+
+                    <!-- Card Content -->
+                    <div class="content">
+                        <h3>2022 – 2023</h3>
+                        <h2>Technical Lead</h2>
+                        <p>LTIMindtree</p>
+                        <span>L2/L3 support & team leadership...</span>
+                    </div>
                 </div>
+                <div class="timeline-circle"></div>
             </div>
 
-            <div class="resume-card relative overflow-hidden group hover:cursor-pointer" data-aos="fade-up" data-aos-delay="200">
-                <span
-                    class="absolute left-0 top-0 h-full w-0 bg-blue-400 transition-all duration-800 group-hover:w-full z-0"></span>
-                <div class="relative z-10 p-6">
-                    <p class="text-[#60a5fa] font-medium">2021 – 2022</p>
-                    <h3 class="text-xl font-semibold group-hover:text-gray-800 transition-colors duration-300">Full
-                        Stack Developer</h3>
-                    <p class="text-gray-300 text-sm group-hover:text-gray-900 transition-colors duration-300">YouTube
-                    </p>
-                    <p class="text-gray-400 mt-2 group-hover:text-gray-900 transition-colors duration-300">
-                        Built dynamic applications with Angular, Node.js, and MongoDB.
-                    </p>
+            <!-- Item 2 (Right) -->
+            <div class="timeline-item right" data-aos="fade-left">
+                <div class="timeline-content group" (click)="openModal('fullStackDev')">
+                    <h3>2021 – 2022</h3>
+                    <h2>Full Stack Developer</h2>
+                    <p>Cognizant</p>
+                    <span>.NET migration & travel apps...</span>
                 </div>
+                <div class="timeline-circle"></div>
             </div>
 
-            <div class="resume-card relative overflow-hidden group hover:cursor-pointer" data-aos="fade-up" data-aos-delay="300">
-                <span
-                    class="absolute left-0 top-0 h-full w-0 bg-blue-400 transition-all duration-800 group-hover:w-full z-0"></span>
-                <div class="relative z-10 p-6">
-                    <p class="text-[#60a5fa] font-medium">2020 – 2021</p>
-                    <h3 class="text-xl font-semibold group-hover:text-gray-800 transition-colors duration-300">Backend
-                        Developer</h3>
-                    <p class="text-gray-300 text-sm group-hover:text-gray-900 transition-colors duration-300">Apple Inc.
-                    </p>
-                    <p class="text-gray-400 mt-2 group-hover:text-gray-900 transition-colors duration-300">
-                        Developed API services and optimized server performance.
-                    </p>
+            <!-- Item 3 (Left) -->
+            <div class="timeline-item left" data-aos="fade-right">
+                <div class="timeline-content group" (click)="openModal('technicalAnalyst')">
+                    <h3>2017 – 2021</h3>
+                    <h2>Technical Analyst</h2>
+                    <p>Cognizant</p>
+                    <span>Platform migration & AngularJS...</span>
                 </div>
+                <div class="timeline-circle"></div>
+            </div>
+
+            <!-- Item 4 (Right) -->
+            <div class="timeline-item right" data-aos="fade-left">
+                <div class="timeline-content group" (click)="openModal('programmerTrainee')">
+                    <h3>2015 – 2017</h3>
+                    <h2>Analyst Trainee</h2>
+                    <p>Cognizant</p>
+                    <span>Early support & learning phase...</span>
+                </div>
+                <div class="timeline-circle"></div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div *ngIf="selectedExperience"
+        class="fixed inset-0 flex justify-center items-center z-50 transition-opacity duration-300"
+        [ngClass]="{ 'opacity-100 bg-black bg-opacity-60': selectedExperience, 'opacity-0 bg-opacity-0': !selectedExperience }">
+
+        <!-- Modal Box -->
+        <div class="bg-gray-900 text-white p-8 rounded-2xl shadow-2xl max-w-lg w-11/12 relative transform transition-all duration-300 scale-100"
+            [ngClass]="{ 'scale-100 opacity-100': selectedExperience, 'scale-95 opacity-0': !selectedExperience }">
+
+            <!-- Close Button -->
+            <button
+                class="absolute top-3 right-3 text-gray-400 hover:text-white transition-colors duration-200 hover:cursor-pointer"
+                (click)="closeModal()">
+                ✕
+            </button>
+
+            <!-- Modal Content -->
+            <h3 class="text-2xl font-semibold mb-4 text-blue-400">{{ selectedExperience.title }}</h3>
+            <p class="mb-2 text-gray-300">{{ selectedExperience.company }} ({{ selectedExperience.duration }})</p>
+            <p class="text-gray-400">{{ selectedExperience.details }}</p>
+        </div>
+    </div>
+
+    <!-- Skills Section -->
+    <div *ngIf="activeTab === 'skills'" class="grid grid-cols-3 md:grid-cols-8 gap-6">
+        <div class="tech-card group w-24 h-24 flex items-center justify-center border border-blue-400 rounded shadow-lg cursor-pointer perspective overflow-hidden"
+            data-aos="fade-up" data-aos-delay="100">
+            <!-- Hover Overlay -->
+            <span
+                class="absolute left-0 top-0 h-full w-0 bg-blue-400 transition-all duration-800 group-hover:w-full z-0 "></span>
+            <!-- Icon -->
+            <div
+                class="relative z-10 text-white group-hover:text-gray-900 transition-colors duration-300 icon-container">
+                <i class="devicon-angularjs-plain colored text-5xl"></i>
+            </div>
+        </div>
+        <div class="tech-card group w-24 h-24 flex items-center justify-center border border-blue-400 rounded shadow-lg cursor-pointer perspective overflow-hidden"
+            data-aos="fade-up" data-aos-delay="100">
+            <!-- Hover Overlay -->
+            <span
+                class="absolute left-0 top-0 h-full w-0 bg-blue-400 transition-all duration-800 group-hover:w-full z-0 "></span>
+            <!-- Icon -->
+            <div
+                class="relative z-10 text-white group-hover:text-gray-900 transition-colors duration-300 icon-container">
+                <i class="devicon-html5-plain colored text-5xl"></i>
+            </div>
+        </div>
+        <div class="tech-card group w-24 h-24 flex items-center justify-center border border-blue-400 rounded shadow-lg cursor-pointer perspective overflow-hidden"
+            data-aos="fade-up" data-aos-delay="100">
+            <!-- Hover Overlay -->
+            <span
+                class="absolute left-0 top-0 h-full w-0 bg-blue-400 transition-all duration-800 group-hover:w-full z-0 "></span>
+            <!-- Icon -->
+            <div
+                class="relative z-10 text-white group-hover:text-gray-900 transition-colors duration-300 icon-container">
+                <i class="devicon-css3-plain colored text-5xl"></i>
+            </div>
+        </div>
+        <div class="tech-card group w-24 h-24 flex items-center justify-center border border-blue-400 rounded shadow-lg cursor-pointer perspective overflow-hidden"
+            data-aos="fade-up" data-aos-delay="100">
+            <!-- Hover Overlay -->
+            <span
+                class="absolute left-0 top-0 h-full w-0 bg-blue-400 transition-all duration-800 group-hover:w-full z-0 "></span>
+            <!-- Icon -->
+            <div
+                class="relative z-10 text-white group-hover:text-gray-900 transition-colors duration-300 icon-container">
+                <i class="devicon-tailwindcss-plain colored text-5xl"></i>
+            </div>
+        </div>
+        <div class="tech-card group w-24 h-24 flex items-center justify-center border border-blue-400 rounded shadow-lg cursor-pointer perspective overflow-hidden"
+            data-aos="fade-up" data-aos-delay="100">
+            <!-- Hover Overlay -->
+            <span
+                class="absolute left-0 top-0 h-full w-0 bg-blue-400 transition-all duration-800 group-hover:w-full z-0 "></span>
+            <!-- Icon -->
+            <div
+                class="relative z-10 text-white group-hover:text-gray-900 transition-colors duration-300 icon-container">
+                <i class="devicon-javascript-plain colored text-5xl"></i>
+            </div>
+        </div>
+        <div class="tech-card group w-24 h-24 flex items-center justify-center border border-blue-400 rounded shadow-lg cursor-pointer perspective overflow-hidden"
+            data-aos="fade-up" data-aos-delay="100">
+            <!-- Hover Overlay -->
+            <span
+                class="absolute left-0 top-0 h-full w-0 bg-blue-400 transition-all duration-800 group-hover:w-full z-0 "></span>
+            <!-- Icon -->
+            <div
+                class="relative z-10 text-white group-hover:text-gray-900 transition-colors duration-300 icon-container">
+                <i class="devicon-dotnetcore-plain colored text-5xl"></i>
+            </div>
+        </div>
+        <div class="tech-card group w-24 h-24 flex items-center justify-center border border-blue-400 rounded shadow-lg cursor-pointer perspective overflow-hidden"
+            data-aos="fade-up" data-aos-delay="100">
+            <!-- Hover Overlay -->
+            <span
+                class="absolute left-0 top-0 h-full w-0 bg-blue-400 transition-all duration-800 group-hover:w-full z-0 "></span>
+            <!-- Icon -->
+            <div
+                class="relative z-10 text-white group-hover:text-gray-900 transition-colors duration-300 icon-container">
+                <i class="devicon-csharp-plain colored text-5xl"></i>
+            </div>
+        </div>
+        <div class="tech-card group w-24 h-24 flex items-center justify-center border border-blue-400 rounded shadow-lg cursor-pointer perspective overflow-hidden"
+            data-aos="fade-up" data-aos-delay="100">
+            <!-- Hover Overlay -->
+            <span
+                class="absolute left-0 top-0 h-full w-0 bg-blue-400 transition-all duration-800 group-hover:w-full z-0 "></span>
+            <!-- Icon -->
+            <div
+                class="relative z-10 text-white group-hover:text-gray-900 transition-colors duration-300 icon-container">
+                <i class="devicon-microsoftsqlserver-plain colored text-5xl"></i>
+            </div>
+        </div>
+        <div class="tech-card group w-24 h-24 flex items-center justify-center border border-blue-400 rounded shadow-lg cursor-pointer perspective overflow-hidden"
+            data-aos="fade-up" data-aos-delay="100">
+            <!-- Hover Overlay -->
+            <span
+                class="absolute left-0 top-0 h-full w-0 bg-blue-400 transition-all duration-800 group-hover:w-full z-0 "></span>
+            <!-- Icon -->
+            <div
+                class="relative z-10 text-white group-hover:text-gray-900 transition-colors duration-300 icon-container">
+                <i class="devicon-azure-plain colored text-5xl"></i>
+            </div>
+        </div>
+        <div class="tech-card group w-24 h-24 flex items-center justify-center border border-blue-400 rounded shadow-lg cursor-pointer perspective overflow-hidden"
+            data-aos="fade-up" data-aos-delay="100">
+            <!-- Hover Overlay -->
+            <span
+                class="absolute left-0 top-0 h-full w-0 bg-blue-400 transition-all duration-800 group-hover:w-full z-0 "></span>
+            <!-- Icon -->
+            <div
+                class="relative z-10 text-white group-hover:text-gray-900 transition-colors duration-300 icon-container">
+                <i class="devicon-firebase-plain colored text-xl"></i>
+            </div>
+        </div>
+        <div class="tech-card group w-24 h-24 flex items-center justify-center border border-blue-400 rounded shadow-lg cursor-pointer perspective overflow-hidden"
+            data-aos="fade-up" data-aos-delay="100">
+            <!-- Hover Overlay -->
+            <span
+                class="absolute left-0 top-0 h-full w-0 bg-blue-400 transition-all duration-800 group-hover:w-full z-0 "></span>
+            <!-- Icon -->
+            <div
+                class="relative z-10 text-white group-hover:text-gray-900 transition-colors duration-300 icon-container">
+                <i class="devicon-typescript-plain colored text-5xl"></i>
+            </div>
+        </div>
+    </div>
+
+    <!-- Education Section -->
+    <div *ngIf="activeTab === 'education'" class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="resume-card relative overflow-hidden group hover:cursor-pointer " data-aos="fade-up"
+            data-aos-delay="100">
+            <span
+                class="absolute left-0 top-0 h-full w-0 bg-blue-400 transition-all duration-800 group-hover:w-full z-0"></span>
+            <div class="relative z-10 p-6">
+                <p class="text-[#60a5fa] font-medium">2010 – 2014</p>
+                <h3 class="text-xl font-semibold group-hover:text-gray-800 transition-colors duration-300">Bachelor
+                    of Technology</h3>
+                <p class="text-gray-300 text-sm group-hover:text-gray-900 transition-colors duration-300">West Bengal University of Technology</p>
+                <p class="text-gray-400 mt-2 group-hover:text-gray-900 transition-colors duration-300">
+                    Specialized in Information Technology.
+                </p>
             </div>
         </div>
 
-        <!-- Skills Section -->
-        <div *ngIf="activeTab === 'skills'" class="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div class="resume-card relative overflow-hidden group hover:cursor-pointer" data-aos="fade-up" data-aos-delay="100">
-                <span
-                    class="absolute left-0 top-0 h-full w-0 bg-blue-400 transition-all duration-800 group-hover:w-full z-0"></span>
-                <div class="relative z-10 p-6">
-                    <h3 class="text-xl font-semibold group-hover:text-gray-800 transition-colors duration-300">Angular
-                    </h3>
-                    <p class="text-gray-400 mt-2 group-hover:text-gray-900 transition-colors duration-300">
-                        Advanced proficiency with 8.5 years of experience.
-                    </p>
-                </div>
-            </div>
-
-            <div class="resume-card relative overflow-hidden group hover:cursor-pointer" data-aos="fade-up" data-aos-delay="200">
-                <span
-                    class="absolute left-0 top-0 h-full w-0 bg-blue-400 transition-all duration-800 group-hover:w-full z-0"></span>
-                <div class="relative z-10 p-6">
-                    <h3 class="text-xl font-semibold group-hover:text-gray-800 transition-colors duration-300">.NET</h3>
-                    <p class="text-gray-400 mt-2 group-hover:text-gray-900 transition-colors duration-300">
-                        Experienced in building enterprise-grade applications.
-                    </p>
-                </div>
-            </div>
-
-            <div class="resume-card relative overflow-hidden group hover:cursor-pointer" data-aos="fade-up" data-aos-delay="300">
-                <span
-                    class="absolute left-0 top-0 h-full w-0 bg-blue-400 transition-all duration-800 group-hover:w-full z-0"></span>
-                <div class="relative z-10 p-6">
-                    <h3 class="text-xl font-semibold group-hover:text-gray-800 transition-colors duration-300">Tailwind
-                        CSS</h3>
-                    <p class="text-gray-400 mt-2 group-hover:text-gray-900 transition-colors duration-300">
-                        Skilled at creating responsive, modern UI designs.
-                    </p>
-                </div>
+        <div class="resume-card relative overflow-hidden group hover:cursor-pointer" data-aos="fade-up"
+            data-aos-delay="200">
+            <span
+                class="absolute left-0 top-0 h-full w-0 bg-blue-400 transition-all duration-800 group-hover:w-full z-0"></span>
+            <div class="relative z-10 p-6">
+                <p class="text-[#60a5fa] font-medium">2008 – 2010</p>
+                <h3 class="text-xl font-semibold group-hover:text-gray-800 transition-colors duration-300">Higher Secondary</h3>
+                <p class="text-gray-300 text-sm group-hover:text-gray-900 transition-colors duration-300">Sudhir Memorial Institute</p>
+                <p class="text-gray-400 mt-2 group-hover:text-gray-900 transition-colors duration-300">
+                    Studied Science as a major subject.
+                </p>
             </div>
         </div>
 
-        <!-- Education Section -->
-        <div *ngIf="activeTab === 'education'" class="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div class="resume-card relative overflow-hidden group hover:cursor-pointer" data-aos="fade-up" data-aos-delay="100">
-                <span
-                    class="absolute left-0 top-0 h-full w-0 bg-blue-400 transition-all duration-800 group-hover:w-full z-0"></span>
-                <div class="relative z-10 p-6">
-                    <p class="text-[#60a5fa] font-medium">2012 – 2015</p>
-                    <h3 class="text-xl font-semibold group-hover:text-gray-800 transition-colors duration-300">Bachelor
-                        of Data Science</h3>
-                    <p class="text-gray-300 text-sm group-hover:text-gray-900 transition-colors duration-300">Codehal
-                        University</p>
-                    <p class="text-gray-400 mt-2 group-hover:text-gray-900 transition-colors duration-300">
-                        Specialized in software engineering and data structures.
-                    </p>
-                </div>
-            </div>
-
-            <div class="resume-card relative overflow-hidden group hover:cursor-pointer" data-aos="fade-up" data-aos-delay="200">
-                <span
-                    class="absolute left-0 top-0 h-full w-0 bg-blue-400 transition-all duration-800 group-hover:w-full z-0"></span>
-                <div class="relative z-10 p-6">
-                    <p class="text-[#60a5fa] font-medium">2015 – 2017</p>
-                    <h3 class="text-xl font-semibold group-hover:text-gray-800 transition-colors duration-300">Master of
-                        Computer Science</h3>
-                    <p class="text-gray-300 text-sm group-hover:text-gray-900 transition-colors duration-300">Codehal
-                        University</p>
-                    <p class="text-gray-400 mt-2 group-hover:text-gray-900 transition-colors duration-300">
-                        Focused on advanced algorithms and distributed systems.
-                    </p>
-                </div>
-            </div>
-
-            <div class="resume-card relative overflow-hidden group hover:cursor-pointer" data-aos="fade-up" data-aos-delay="300">
-                <span
-                    class="absolute left-0 top-0 h-full w-0 bg-blue-400 transition-all duration-800 group-hover:w-full z-0"></span>
-                <div class="relative z-10 p-6">
-                    <p class="text-[#60a5fa] font-medium">2017 – 2018</p>
-                    <h3 class="text-xl font-semibold group-hover:text-gray-800 transition-colors duration-300">Doctor of
-                        Engineering</h3>
-                    <p class="text-gray-300 text-sm group-hover:text-gray-900 transition-colors duration-300">Codehal
-                        University</p>
-                    <p class="text-gray-400 mt-2 group-hover:text-gray-900 transition-colors duration-300">
-                        Conducted research in high-performance computing.
-                    </p>
-                </div>
+        <div class="resume-card relative overflow-hidden group hover:cursor-pointer" data-aos="fade-up"
+            data-aos-delay="300">
+            <span
+                class="absolute left-0 top-0 h-full w-0 bg-blue-400 transition-all duration-800 group-hover:w-full z-0"></span>
+            <div class="relative z-10 p-6">
+                <p class="text-[#60a5fa] font-medium">2008</p>
+                <h3 class="text-xl font-semibold group-hover:text-gray-800 transition-colors duration-300">Secondary</h3>
+                <p class="text-gray-300 text-sm group-hover:text-gray-900 transition-colors duration-300">Aditya Academy Secondary</p>
+                <p class="text-gray-400 mt-2 group-hover:text-gray-900 transition-colors duration-300">
+                    Completed Secondary Education.
+                </p>
             </div>
         </div>
+    </div>
 
 
 

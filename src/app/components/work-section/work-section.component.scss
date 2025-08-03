@@ -1,0 +1,198 @@
+/* Container & Vertical Line */
+.timeline-container {
+    position: relative;
+    width: 100%;
+    padding: 50px 0;
+}
+
+.timeline-line {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 3px;
+    height: 100%;
+    background-color: #4b5563; /* gray-600 */
+}
+
+/* Main Layout */
+.timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 80px;
+}
+
+/* Timeline Items (Desktop Zig-Zag) */
+.timeline-item {
+    position: relative;
+    width: 50%;
+}
+
+.timeline-item.left {
+    align-self: flex-start;
+    text-align: right;
+    padding-right: 50px;
+}
+
+.timeline-item.right {
+    align-self: flex-end;
+    text-align: left;
+    padding-left: 50px;
+}
+
+/* Timeline Card (Hover Overlay) */
+.timeline-content {
+    background: transparent;
+    color: white;
+    padding: 20px;
+    border-radius: 0.25rem;
+    border: 1px solid #60a5fa;
+    cursor: pointer;
+    position: relative;
+    z-index: 10;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.timeline-content:hover {
+    transform: scale(1.05);
+}
+
+/* Overlay Animation */
+.timeline-content::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: #60a5fa;
+    transition: width 0.7s ease;
+    z-index: 0;
+}
+
+.timeline-content:hover::before {
+    width: 100%;
+}
+
+/* Keep Text Above Overlay */
+.timeline-content * {
+    position: relative;
+    z-index: 1;
+    transition: color 0.3s ease;
+}
+
+/* Text Colors */
+.timeline-content h3 {
+    color: #60a5fa;
+    font-size: 16px;
+}
+
+.timeline-content h2 {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.timeline-content p {
+    font-size: 14px;
+    color: #d1d5db;
+}
+
+.timeline-content span {
+    display: block;
+    margin-top: 10px;
+    color: #9ca3af;
+}
+
+/* Text Changes on Hover */
+.timeline-content:hover h2,
+.timeline-content:hover p,
+.timeline-content:hover span {
+    color: #111827;
+}
+
+/* Circles */
+.timeline-circle {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
+    background-color: #4b5563;
+    border: 4px solid #111827;
+    border-radius: 50%;
+    transition: background-color 0.3s ease;
+    z-index: 20;
+}
+
+.timeline-item.left .timeline-circle {
+    right: -10px;
+}
+
+.timeline-item.right .timeline-circle {
+    left: -10px;
+}
+
+/* Circle Hover Sync */
+.timeline-item:hover .timeline-circle {
+    background-color: #60a5fa;
+}
+
+
+.perspective {
+    perspective: 1000px;
+}
+
+.icon-container {
+    transition: transform 0.8s ease;
+    transform-style: preserve-3d;
+}
+
+.tech-card:hover .icon-container {
+    transform: rotateY(360deg) scale(1.8);
+}
+
+
+/* ---------------------- */
+/* Mobile Responsiveness */
+/* ---------------------- */
+@media screen and (max-width: 768px) {
+    /* Move timeline line to left */
+    .timeline-line {
+        left: 30px; /* Matches circle center */
+        transform: none;
+    }
+
+    /* Make all items full width with equal spacing */
+    .timeline-item {
+        width: 100%;
+        text-align: left;
+        padding-left: 70px; /* Consistent gap for all cards */
+        padding-right: 0 !important; /* Remove right padding */
+    }
+
+    /* Override any alignment differences */
+    .timeline-item.left,
+    .timeline-item.right {
+        align-self: flex-start;
+        padding-left: 70px; /* Ensure same gap for left & right */
+    }
+
+    /* Force circles to align with line */
+    .timeline-item.left .timeline-circle,
+    .timeline-item.right .timeline-circle,
+    .timeline-item .timeline-circle {
+        left: 30px !important; /* Matches timeline line */
+        right: auto !important;
+        transform: translate(-50%, -50%);
+    }
+
+    /* Adjust card width to match new spacing */
+    .timeline-content {
+        width: calc(100% - 90px); /* Balanced space considering padding-left */
+    }
+}
+
+
+
+
