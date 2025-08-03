@@ -3,7 +3,7 @@
         <h2 class="text-4xl font-bold mb-12">Projects</h2>
 
         <!-- Responsive Grid: 1 col on mobile, 2 on tablet, 3 on desktop -->
-        <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div class="grid gap-12 sm:grid-cols-2 lg:grid-cols-3">
 
             <!-- Project Card -->
             <div
@@ -28,7 +28,7 @@
                             </h3>
                             <p
                                 class="text-gray-400 mt-1 text-sm group-hover:text-gray-900 transition-colors duration-300">
-                                Short project description...
+                                Web Api, HTML/CSS Javascript
                             </p>
 
                             <!-- Tech Stack Icons (smaller icons) -->
@@ -81,7 +81,41 @@
             </div>
 
             <!-- Add more cards... -->
+                        <div
+                class="group relative bg-transparent border border-blue-400 rounded-xl overflow-hidden shadow-lg transition-transform duration-300 hover:scale-105 cursor-pointer">
+                <a href="https://portfolio1-blue-one.vercel.app/" target="_blank"
+                    class="group relative block bg-transparent border border-blue-400 rounded-xl overflow-hidden shadow-lg transition-transform duration-300 hover:scale-105 cursor-pointer">
 
+                    <!-- Image -->
+                    <img src="project3.png" alt="Project 3" class="w-full h-36 object-cover">
+
+                    <!-- Content with sliding overlay -->
+                    <div class="relative overflow-hidden">
+                        <!-- Hover Overlay -->
+                        <span
+                            class="absolute left-0 top-0 h-full w-0 bg-blue-400 transition-all duration-700 group-hover:w-full z-0"></span>
+
+                        <!-- Actual Content -->
+                        <div class="relative z-10 p-4">
+                            <h3 class="text-lg font-semibold group-hover:text-gray-800 transition-colors duration-300">
+                                PortFolio
+                            </h3>
+                            <p
+                                class="text-gray-400 mt-1 text-sm group-hover:text-gray-900 transition-colors duration-300">
+                                HTML/CSS Javascript
+                            </p>
+
+                            <!-- Tech Stack Icons -->
+                            <div class="flex space-x-2 mt-3 justify-center">
+                                <i class="devicon-angularjs-plain colored text-xl"></i>
+                                <i class="devicon-firebase-plain colored text-xl"></i>
+                                <i class="devicon-typescript-plain colored text-xl"></i>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+
+            </div>
         </div>
     </div>
 </section>
