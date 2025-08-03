@@ -11,7 +11,7 @@ import { Component, HostListener } from '@angular/core';
 })
 export class HeaderComponent {
 activeSection: string = 'home';
-
+ isMenuOpen = false;
   @HostListener('window:scroll', [])
   onScroll(): void {
     const sections = document.querySelectorAll('section');
@@ -31,4 +31,12 @@ activeSection: string = 'home';
     this.activeSection = section;
     document.getElementById(section)?.scrollIntoView({ behavior: 'smooth' });
   }
+
+ 
+
+toggleMenu() {
+  this.isMenuOpen = !this.isMenuOpen;
+}
+
+
 }
