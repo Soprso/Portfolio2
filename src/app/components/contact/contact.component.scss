@@ -1,0 +1,11 @@
+.contact-section {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 1s ease-out 0.3s, /* 0.3s delay */
+              transform 1s ease-out 0.3s;
+}
+
+.contact-section.active {
+  opacity: 1;
+  transform: translateY(0);
+}

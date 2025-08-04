@@ -33,24 +33,35 @@ export class WorkSectionComponent implements AfterViewInit {
   }
 
   private initializeEducationAnimations() {
+    const resumeCards = this.elRef.nativeElement.querySelectorAll('.resume-card');
+
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
+          const target = entry.target as HTMLElement;
+          const index = Array.from(resumeCards).indexOf(target);
+
           if (entry.isIntersecting) {
-            entry.target.classList.add('active');
+            // Apply staggered delay based on index
+            target.style.transitionDelay = `${index * 150}ms`; // 150ms per card
+            target.classList.add('active');
           } else {
-            entry.target.classList.remove('active'); // Replay animation when re-entering
+            // Reset animation for replay
+            target.style.transitionDelay = `0ms`;
+            target.classList.remove('active');
           }
         });
       },
       { threshold: 0.2 }
     );
 
-    this.elRef.nativeElement.querySelectorAll('.resume-card').forEach((el: Element) => {
-      el.classList.remove('active');
+    // Reset and observe all cards
+    resumeCards.forEach((el: Element) => {
+      (el as HTMLElement).classList.remove('active');
       observer.observe(el);
     });
   }
+
 
 
   /**
@@ -76,26 +87,36 @@ export class WorkSectionComponent implements AfterViewInit {
       observer.observe(el);
     });
   }
-
   private initializeSkillsAnimations() {
+    const techCards = this.elRef.nativeElement.querySelectorAll('.tech-card');
+
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
+          const target = entry.target as HTMLElement;
+          const index = Array.from(techCards).indexOf(target);
+
           if (entry.isIntersecting) {
-            entry.target.classList.add('active');
+            // Apply staggered delay based on index
+            target.style.transitionDelay = `${index * 100}ms`;
+            target.classList.add('active');
           } else {
-            entry.target.classList.remove('active'); // Replay animation on re-enter
+            // Reset animation for replay
+            target.style.transitionDelay = `0ms`;
+            target.classList.remove('active');
           }
         });
       },
       { threshold: 0.2 }
     );
 
-    this.elRef.nativeElement.querySelectorAll('.tech-card').forEach((el: Element) => {
-      el.classList.remove('active');
+    // Reset and observe all cards
+    techCards.forEach((el: Element) => {
+      (el as HTMLElement).classList.remove('active');
       observer.observe(el);
     });
   }
+
 
 
   /**

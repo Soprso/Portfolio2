@@ -1,121 +1,118 @@
 <section id="projects" class="relative w-full min-h-screen py-16 text-white">
-    <div class="max-w-6xl mx-auto px-6 text-center">
-        <h2 class="text-4xl font-bold mb-12">Projects</h2>
+    <h2 class="text-4xl font-bold mb-12 text-center">Projects</h2>
+    <!-- Responsive Grid: 1 col on mobile, 2 on tablet, 3 on desktop -->
+    <div class="grid gap-6 px-6 sm:grid-cols-2 lg:grid-cols-3 w-full">
 
-        <!-- Responsive Grid: 1 col on mobile, 2 on tablet, 3 on desktop -->
-        <div class="grid gap-12 sm:grid-cols-2 lg:grid-cols-3">
+        <!-- Project Card -->
+        <div
+           class="project-card group relative bg-transparent border border-blue-400 rounded-xl overflow-hidden shadow-lg
+            transition-transform duration-500 ease-out hover:scale-102 cursor-pointer">
 
-            <!-- Project Card -->
-            <div
-                class="group relative bg-transparent border border-blue-400 rounded-xl overflow-hidden shadow-lg transition-transform duration-300 hover:scale-105 cursor-pointer">
+            <a href="https://soprso.github.io/WeatherForeCast/index.html" target="_blank"
+                class="group relative block bg-transparent border border-blue-400 rounded-xl overflow-hidden shadow-lg transition-transform duration-300 hover:scale-105 cursor-pointer">
 
-                <a href="https://soprso.github.io/WeatherForeCast/index.html" target="_blank"
-                    class="group relative block bg-transparent border border-blue-400 rounded-xl overflow-hidden shadow-lg transition-transform duration-300 hover:scale-105 cursor-pointer">
+                <!-- Image (smaller height) -->
+                <img src="project1.png" alt="Project 1" class="w-full h-36 object-cover">
 
-                    <!-- Image (smaller height) -->
-                    <img src="project1.png" alt="Project 1" class="w-full h-36 object-cover">
+                <!-- Content with sliding overlay -->
+                <div class="relative overflow-hidden">
+                    <!-- Hover Overlay -->
+                    <span
+                        class="absolute left-0 top-0 h-full w-0 bg-blue-400 transition-all duration-700 group-hover:w-full z-0"></span>
 
-                    <!-- Content with sliding overlay -->
-                    <div class="relative overflow-hidden">
-                        <!-- Hover Overlay -->
-                        <span
-                            class="absolute left-0 top-0 h-full w-0 bg-blue-400 transition-all duration-700 group-hover:w-full z-0"></span>
+                    <!-- Actual Content (smaller padding) -->
+                    <div class="relative z-10 p-4">
+                        <h3 class="text-lg font-semibold group-hover:text-gray-800 transition-colors duration-300">
+                            Weather Forecast
+                        </h3>
+                        <p class="text-gray-400 mt-1 text-sm group-hover:text-gray-900 transition-colors duration-300">
+                            Web Api, HTML/CSS Javascript
+                        </p>
 
-                        <!-- Actual Content (smaller padding) -->
-                        <div class="relative z-10 p-4">
-                            <h3 class="text-lg font-semibold group-hover:text-gray-800 transition-colors duration-300">
-                                Weather Forecast
-                            </h3>
-                            <p
-                                class="text-gray-400 mt-1 text-sm group-hover:text-gray-900 transition-colors duration-300">
-                                Web Api, HTML/CSS Javascript
-                            </p>
-
-                            <!-- Tech Stack Icons (smaller icons) -->
-                            <div class="flex space-x-2 mt-3 justify-center">
-                                <i class="devicon-angularjs-plain colored text-xl"></i>
-                                <i class="devicon-tailwindcss-plain colored text-xl"></i>
-                                <i class="devicon-typescript-plain colored text-xl"></i>
-                            </div>
+                        <!-- Tech Stack Icons (smaller icons) -->
+                        <div class="flex space-x-2 mt-3 justify-center">
+                            <i class="devicon-angularjs-plain colored text-xl"></i>
+                            <i class="devicon-tailwindcss-plain colored text-xl"></i>
+                            <i class="devicon-typescript-plain colored text-xl"></i>
                         </div>
                     </div>
-                </a>
+                </div>
+            </a>
 
-            </div>
+        </div>
 
-            <!-- Repeat more cards here -->
-            <div
-                class="group relative bg-transparent border border-blue-400 rounded-xl overflow-hidden shadow-lg transition-transform duration-300 hover:scale-105 cursor-pointer">
-                <a href="https://bangu.in/" target="_blank"
-                    class="group relative block bg-transparent border border-blue-400 rounded-xl overflow-hidden shadow-lg transition-transform duration-300 hover:scale-105 cursor-pointer">
+        <!-- Repeat more cards here -->
+        <div
+           class="project-card group relative bg-transparent border border-blue-400 rounded-xl overflow-hidden shadow-lg
+            transition-transform duration-500 ease-out hover:scale-102 cursor-pointer">
+            <a href="https://bangu.in/" target="_blank"
+                class="group relative block bg-transparent border border-blue-400 rounded-xl overflow-hidden shadow-lg transition-transform duration-300 hover:scale-105 cursor-pointer">
 
-                    <!-- Image -->
-                    <img src="project2.png" alt="Project 2" class="w-full h-36 object-cover">
+                <!-- Image -->
+                <img src="project2.png" alt="Project 2" class="w-full h-36 object-cover">
 
-                    <!-- Content with sliding overlay -->
-                    <div class="relative overflow-hidden">
-                        <!-- Hover Overlay -->
-                        <span
-                            class="absolute left-0 top-0 h-full w-0 bg-blue-400 transition-all duration-700 group-hover:w-full z-0"></span>
+                <!-- Content with sliding overlay -->
+                <div class="relative overflow-hidden">
+                    <!-- Hover Overlay -->
+                    <span
+                        class="absolute left-0 top-0 h-full w-0 bg-blue-400 transition-all duration-700 group-hover:w-full z-0"></span>
 
-                        <!-- Actual Content -->
-                        <div class="relative z-10 p-4">
-                            <h3 class="text-lg font-semibold group-hover:text-gray-800 transition-colors duration-300">
-                                Code Editor
-                            </h3>
-                            <p
-                                class="text-gray-400 mt-1 text-sm group-hover:text-gray-900 transition-colors duration-300">
-                                Built with Angular and Firebase.
-                            </p>
+                    <!-- Actual Content -->
+                    <div class="relative z-10 p-4">
+                        <h3 class="text-lg font-semibold group-hover:text-gray-800 transition-colors duration-300">
+                            Code Editor
+                        </h3>
+                        <p class="text-gray-400 mt-1 text-sm group-hover:text-gray-900 transition-colors duration-300">
+                            Built with Angular and Firebase.
+                        </p>
 
-                            <!-- Tech Stack Icons -->
-                            <div class="flex space-x-2 mt-3 justify-center">
-                                <i class="devicon-angularjs-plain colored text-xl"></i>
-                                <i class="devicon-firebase-plain colored text-xl"></i>
-                                <i class="devicon-typescript-plain colored text-xl"></i>
-                            </div>
+                        <!-- Tech Stack Icons -->
+                        <div class="flex space-x-2 mt-3 justify-center">
+                            <i class="devicon-angularjs-plain colored text-xl"></i>
+                            <i class="devicon-firebase-plain colored text-xl"></i>
+                            <i class="devicon-typescript-plain colored text-xl"></i>
                         </div>
                     </div>
-                </a>
+                </div>
+            </a>
 
-            </div>
+        </div>
 
-            <!-- Add more cards... -->
-                        <div
-                class="group relative bg-transparent border border-blue-400 rounded-xl overflow-hidden shadow-lg transition-transform duration-300 hover:scale-105 cursor-pointer">
-                <a href="https://portfolio1-blue-one.vercel.app/" target="_blank"
-                    class="group relative block bg-transparent border border-blue-400 rounded-xl overflow-hidden shadow-lg transition-transform duration-300 hover:scale-105 cursor-pointer">
+        <!-- Add more cards... -->
+        <div
+            class="project-card group relative bg-transparent border border-blue-400 rounded-xl overflow-hidden shadow-lg
+            transition-transform duration-500 ease-out hover:scale-102 cursor-pointer">
+            <a href="https://portfolio1-blue-one.vercel.app/" target="_blank"
+                class="group relative block bg-transparent border border-blue-400 rounded-xl overflow-hidden shadow-lg transition-transform duration-300 hover:scale-105 cursor-pointer">
 
-                    <!-- Image -->
-                    <img src="project3.png" alt="Project 3" class="w-full h-36 object-cover">
+                <!-- Image -->
+                <img src="project3.png" alt="Project 3" class="w-full h-36 object-cover">
 
-                    <!-- Content with sliding overlay -->
-                    <div class="relative overflow-hidden">
-                        <!-- Hover Overlay -->
-                        <span
-                            class="absolute left-0 top-0 h-full w-0 bg-blue-400 transition-all duration-700 group-hover:w-full z-0"></span>
+                <!-- Content with sliding overlay -->
+                <div class="relative overflow-hidden">
+                    <!-- Hover Overlay -->
+                    <span
+                        class="absolute left-0 top-0 h-full w-0 bg-blue-400 transition-all duration-700 group-hover:w-full z-0"></span>
 
-                        <!-- Actual Content -->
-                        <div class="relative z-10 p-4">
-                            <h3 class="text-lg font-semibold group-hover:text-gray-800 transition-colors duration-300">
-                                PortFolio
-                            </h3>
-                            <p
-                                class="text-gray-400 mt-1 text-sm group-hover:text-gray-900 transition-colors duration-300">
-                                HTML/CSS Javascript
-                            </p>
+                    <!-- Actual Content -->
+                    <div class="relative z-10 p-4">
+                        <h3 class="text-lg font-semibold group-hover:text-gray-800 transition-colors duration-300">
+                            PortFolio
+                        </h3>
+                        <p class="text-gray-400 mt-1 text-sm group-hover:text-gray-900 transition-colors duration-300">
+                            HTML/CSS Javascript
+                        </p>
 
-                            <!-- Tech Stack Icons -->
-                            <div class="flex space-x-2 mt-3 justify-center">
-                                <i class="devicon-html5-plain colored text-xl"></i>
-                                <i class="devicon-css3-plain colored text-xl"></i>
-                                <i class="devicon-javascript-plain colored text-xl"></i>
-                            </div>
+                        <!-- Tech Stack Icons -->
+                        <div class="flex space-x-2 mt-3 justify-center">
+                            <i class="devicon-html5-plain colored text-xl"></i>
+                            <i class="devicon-css3-plain colored text-xl"></i>
+                            <i class="devicon-javascript-plain colored text-xl"></i>
                         </div>
                     </div>
-                </a>
+                </div>
+            </a>
 
-            </div>
         </div>
     </div>
 </section>
