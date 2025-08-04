@@ -44,3 +44,15 @@
     opacity: 0;
   }
 }
+
+
+.home-animate {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+.home-animate.active {
+  opacity: 1;
+  transform: translateY(0);
+}
