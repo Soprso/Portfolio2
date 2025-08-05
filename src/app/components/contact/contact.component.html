@@ -1,53 +1,57 @@
-<section id="contact" class="contact-section relative min-h-screen w-full py-32 text-white bg-transparent">
+<section id="contact"
+  class="contact-section relative min-h-screen w-full py-32 text-white bg-transparent opacity-0 transform translate-y-10 transition-all duration-1000">
   <div class="max-w-4xl mx-auto px-6 text-center">
-    <!-- Heading -->
     <h2 class="text-4xl font-bold mb-6">Get in Touch</h2>
     <p class="text-gray-400 mb-12">
       Have a project idea or just want to say hello? Fill out the form or reach me directly.
     </p>
-
-    <!-- Contact Form -->
-    <form class="grid gap-6 sm:grid-cols-2">
+    
+    <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="grid gap-6 sm:grid-cols-2">
       <!-- Name -->
-      <input
-        type="text"
-        placeholder="Your Name"
-        class="w-full p-4 bg-transparent border border-blue-400 rounded-lg focus:outline-none focus:border-blue-500 text-white placeholder-gray-400 transition"
-      />
+      <input formControlName="name" type="text" [placeholder]="
+    hasError('name', 'required') ? 'Name is required' : 'Your Name'
+  " class="w-full p-4 bg-transparent border rounded-lg text-white transition"
+        [ngClass]="{ 'border-blue-400': !hasError('name', 'required'), 'border-red-400': hasError('name', 'required') }" />
 
       <!-- Email -->
-      <input
-        type="email"
-        placeholder="Your Email"
-        class="w-full p-4 bg-transparent border border-blue-400 rounded-lg focus:outline-none focus:border-blue-500 text-white placeholder-gray-400 transition"
-      />
+      <input formControlName="email" type="email" [placeholder]="
+    hasError('email', 'required')
+      ? 'Email is required'
+      : hasError('email', 'pattern')
+        ? 'Enter a valid email'
+        : 'Your Email'
+  " class="w-full p-4 bg-transparent border rounded-lg text-white transition"
+        [ngClass]="{ 'border-blue-400': !hasError('email', 'required') && !hasError('email', 'pattern'), 'border-red-400': hasError('email', 'required') || hasError('email', 'pattern') }" />
 
-      <!-- Message (Full Width) -->
-      <textarea
-        placeholder="Your Message"
-        rows="4"
-        class="sm:col-span-2 w-full p-4 bg-transparent border border-blue-400 rounded-lg focus:outline-none focus:border-blue-500 text-white placeholder-gray-400 transition"
-      ></textarea>
+      <!-- Message -->
+      <textarea formControlName="message" rows="4" [placeholder]="
+    hasError('message', 'required') ? 'Message is required' : 'Your Message'
+  " class="sm:col-span-2 w-full p-4 bg-transparent border rounded-lg text-white transition"
+        [ngClass]="{ 'border-blue-400': !hasError('message', 'required'), 'border-red-400': hasError('message', 'required') }"></textarea>
 
       <!-- Submit Button -->
-      <button
-        type="submit"
-        class="sm:col-span-2 relative w-full py-3 bg-transparent border hover:cursor-pointer border-blue-400 rounded-lg font-semibold text-white overflow-hidden group"
-      >
-        <!-- Hover overlay -->
+      <button type="submit" [disabled]="isSending"
+        class="sm:col-span-2 relative w-full py-3 bg-transparent border border-blue-400 rounded-lg font-semibold text-white overflow-hidden group">
         <span
-          class="absolute left-0 top-0 h-full w-0 bg-blue-400 transition-all duration-700 group-hover:w-full z-0 "
-        ></span>
-        <span class="relative z-10 group-hover:text-gray-900">Send Message</span>
+          class="absolute left-0 top-0 h-full w-0 bg-blue-400 transition-all duration-700 group-hover:w-full z-0"></span>
+        <span class="relative z-10 group-hover:text-gray-900">{{ isSending ? 'Sending...' : 'Send Message' }}</span>
       </button>
+
+      <!-- Status Message -->
+      <div class="sm:col-span-2 text-center mt-4">
+        <span *ngIf="messageStatus" class="text-blue-400">{{ messageStatus }}</span>
+      </div>
     </form>
+
+
 
     <!-- Social Links -->
     <div class="flex justify-center space-x-6 mt-12">
       <a href="https://github.com/soprso" target="_blank" class="text-2xl hover:text-blue-400 transition">
         <i class="devicon-github-original"></i>
       </a>
-      <a href="https://linkedin.com/in/soumyadeep-ghosh-2359917a" target="_blank" class="text-2xl hover:text-blue-400 transition">
+      <a href="https://linkedin.com/in/soumyadeep-ghosh-2359917a" target="_blank"
+        class="text-2xl hover:text-blue-400 transition">
         <i class="devicon-linkedin-plain"></i>
       </a>
       <a href="mailto:your@email.com" class="text-2xl hover:text-blue-400 transition">
