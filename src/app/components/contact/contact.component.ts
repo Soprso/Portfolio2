@@ -50,19 +50,33 @@ export class ContactComponent implements AfterViewInit {
 
     const { name, email, message } = this.contactForm.value;
 
-    fetch('/api/send-email', {
+    // Directly using tokens here
+    fetch('https://api.emailjs.com/api/v1.0/email/send', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ name, email, message })
+      body: JSON.stringify({
+        service_id: 'service_tek9n12',
+        template_id: 'template_i8g94bj',
+        user_id: 'tn5GV0k1376UbJ4MS',
+        template_params: {
+          from_name: name,
+          from_email: email,
+          message: message
+        }
+      })
     })
-      .then(res => res.json())
-      .then(data => {
+      .then(async res => {
+        const text = await res.text(); // EmailJS returns "OK"
+        return { ok: res.ok, text };
+      })
+      .then(result => {
         this.isSending = false;
-        if (data.success) {
+        if (result.ok && result.text === 'OK') {
           this.messageStatus = 'Message sent successfully!';
           this.contactForm.reset();
         } else {
           this.messageStatus = 'Failed to send message. Try again later.';
+          console.error('EmailJS Error:', result.text);
         }
       })
       .catch(err => {
@@ -70,6 +84,7 @@ export class ContactComponent implements AfterViewInit {
         this.messageStatus = 'Failed to send message. Try again later.';
         console.error('Error:', err);
       });
+
   }
 
   // Helper for field errors
