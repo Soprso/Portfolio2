@@ -40,4 +40,12 @@ export class ProjectsComponent implements AfterViewInit {
     this.initializeProjectAnimations();
   }
 
+  scrollRight(container: HTMLElement) {
+  container.scrollBy({ left: 300, behavior: 'smooth' });
+}
+
+scrollLeft(container: HTMLElement) {
+  container.scrollBy({ left: -300, behavior: 'smooth' });
+}
+
 }
