@@ -223,19 +223,25 @@
         padding-left: 70px;
     }
 
+    /* Fix circle alignment */
     .timeline-item.left .timeline-circle,
     .timeline-item.right .timeline-circle,
     .timeline-item .timeline-circle {
-        left: 30px !important;
-        right: auto !important;
-        transform: translate(-50%, -50%) scale(0.5);
+        left: 31px !important;
+        transform: translate(-50%, -50%) scale(1); /* Keep scale 1 for correct alignment */
+    }
+
+    .timeline-circle {
+        width: 16px;  /* Slightly smaller for mobile */
+        height: 16px;
     }
 
     .timeline-circle.active {
-        transform: translate(-50%, -50%) scale(1);
+        transform: translate(-50%, -50%) scale(1.2); /* Subtle grow effect when active */
     }
 
     .timeline-content {
         width: calc(100% - 90px);
     }
 }
+

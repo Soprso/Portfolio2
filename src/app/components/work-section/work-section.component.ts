@@ -10,6 +10,7 @@ import { Component, AfterViewInit, HostListener, ElementRef } from '@angular/cor
 export class WorkSectionComponent implements AfterViewInit {
   activeTab: string = 'experience';
   selectedExperience: any = null;
+  isOpening = false;
 
   constructor(private elRef: ElementRef) { }
 
@@ -129,15 +130,27 @@ export class WorkSectionComponent implements AfterViewInit {
       technicalAnalyst: { title: 'Technical Analyst', company: 'Cognizant', duration: '2017 – 2021', details: 'Delivered L2/L3 support, stabilized platforms, and built expertise in AngularJS, ASP.NET Web API, and ServiceNow.' },
       programmerTrainee: { title: 'Analyst Trainee', company: 'Cognizant', duration: '2015 – 2017', details: 'Gained foundational experience with .NET, SQL Server, and application support in the insurance domain.' }
     };
+
     this.selectedExperience = experiences[role];
+    this.isOpening = false;
+
+    // Trigger animation after component mounts
+    setTimeout(() => {
+      this.isOpening = true;
+    }, 20);
   }
 
   /**
    * Close modal
    */
   closeModal() {
-    this.selectedExperience = null;
+    this.isOpening = false;
+    setTimeout(() => {
+      this.selectedExperience = null;
+    }, 300); // Match duration-300
   }
+
+
 
   /**
    * Initialize animations after component view loads
