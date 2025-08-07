@@ -1,0 +1,56 @@
+<section id="blogs" class="relative py-20 px-4 md:px-8 text-white">
+  <div class="max-w-screen-2xl mx-auto">
+    <!-- Section Heading -->
+    <div class="mb-12 text-center">
+      <h2 class="text-4xl md:text-5xl font-bold home-animate">📝 Blogs & Articles</h2>
+      <p class="text-gray-400 text-base md:text-lg mt-2 home-animate">My thoughts, tips, and tutorials on .NET, Angular & JavaScript</p>
+    </div>
+
+    <!-- Search Bar -->
+    <div class="mb-10 max-w-2xl mx-auto">
+      <input type="text" id="blogSearch" placeholder="Search by topic or keyword..."
+        class="w-full px-6 py-3 rounded-full bg-transparent text-white placeholder-gray-400 border border-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-400 transition" />
+    </div>
+
+    <!-- Blog Cards -->
+    <div id="blogList" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 home-animate">
+      <!-- Blog Item -->
+       <div class="group relative overflow-hidden border  border-blue-400 p-6 rounded-2xl transition hover:scale-[1.03] hover:shadow-xl bg-transparent">
+        <span class="absolute left-0 top-0 h-full w-0  bg-blue-400 transition-all duration-700 group-hover:w-full z-0"></span>
+        <div class="relative z-10">
+          <h3 class="text-xl font-semibold text-white mb-2 ">🔧 Mastering Angular Animations</h3>
+          <p class="text-gray-400 text-sm mb-4">
+            A step-by-step guide on page transitions, route animations and reusable animation triggers in Angular.
+          </p>
+          <span class="text-blue-400 text-sm">#angular #animations</span>
+        </div>
+      </div>
+
+       <!-- Blog Item 2 -->
+      <div class="group relative overflow-hidden border border-blue-400 p-6 rounded-2xl transition hover:scale-[1.03] hover:shadow-xl bg-transparent">
+        <span class="absolute left-0 top-0 h-full w-0 bg-blue-400 transition-all duration-700 group-hover:w-full z-0"></span>
+        <div class="relative z-10">
+          <h3 class="text-xl font-semibold text-white mb-2">🧠 Understanding Dependency Injection in .NET</h3>
+          <p class="text-gray-400 text-sm mb-4">
+            Explore the core concept of DI, service lifetimes, and best practices for building scalable .NET apps.
+          </p>
+          <span class="text-blue-400 text-sm">#.net #dependencyinjection</span>
+        </div>
+      </div>
+
+      <!-- Blog Item 3 -->
+      <div class="group relative overflow-hidden border border-blue-400 p-6 rounded-2xl transition hover:scale-[1.03] hover:shadow-xl bg-transparent">
+        <span class="absolute left-0 top-0 h-full w-0 bg-blue-400 transition-all duration-700 group-hover:w-full z-0"></span>
+        <div class="relative z-10">
+          <h3 class="text-xl font-semibold text-white mb-2">💡 JavaScript Closures Explained Simply</h3>
+          <p class="text-gray-400 text-sm mb-4">
+            Closures can be tricky, but this post will make it intuitive using real-world examples.
+          </p>
+          <span class="text-blue-400 text-sm">#javascript #closures</span>
+        </div>
+      </div>
+
+      <!-- Add more blog items here -->
+    </div>
+  </div>
+</section>

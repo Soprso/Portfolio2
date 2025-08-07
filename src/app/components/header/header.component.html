@@ -1,36 +1,25 @@
-<header class="fixed top-0 left-0 w-full z-50 ">
+<header class="fixed top-0 left-0 w-full z-50">
   <div class="flex items-center justify-between max-w-7xl mx-auto px-4 py-3">
-    
+
     <!-- Logo -->
     <h1 class="text-xl font-bold text-gray-300">Soumyadeep.</h1>
-    
+
     <!-- Desktop Menu -->
     <nav class="hidden md:flex gap-6">
-      <a (click)="setActive('home')"
-         [ngClass]="activeSection === 'home' ? 'text-blue-400' : 'text-gray-300'"
-         class="font-medium transition-colors duration-200 cursor-pointer">
-        Home
-      </a>
-      <a (click)="setActive('work')"
-         [ngClass]="activeSection === 'work' ? 'text-blue-400' : 'text-gray-300'"
-         class="font-medium transition-colors duration-200 cursor-pointer">
-        Work
-      </a>
-      <a (click)="setActive('projects')"
-         [ngClass]="activeSection === 'projects' ? 'text-blue-400' : 'text-gray-300'"
-         class="font-medium transition-colors duration-200 cursor-pointer">
-        Projects
-      </a>
-      <a (click)="setActive('contact')"
-         [ngClass]="activeSection === 'contact' ? 'text-blue-400' : 'text-gray-300'"
-         class="font-medium transition-colors duration-200 cursor-pointer">
-        Contact
-      </a>
+      <a (click)="setActive('home')" [ngClass]="activeSection === 'home' ? 'text-blue-400' : 'text-gray-300'"
+        class="font-medium transition-colors duration-200 cursor-pointer">Home</a>
+      <a (click)="setActive('work')" [ngClass]="activeSection === 'work' ? 'text-blue-400' : 'text-gray-300'"
+        class="font-medium transition-colors duration-200 cursor-pointer">Work</a>
+      <a (click)="setActive('projects')" [ngClass]="activeSection === 'projects' ? 'text-blue-400' : 'text-gray-300'"
+        class="font-medium transition-colors duration-200 cursor-pointer">Projects</a>
+      <a (click)="setActive('blogs')" [ngClass]="activeSection === 'blogs' ? 'text-blue-400' : 'text-gray-300'"
+        class="font-medium transition-colors duration-200 cursor-pointer">Blogs</a>
+      <a (click)="setActive('contact')" [ngClass]="activeSection === 'contact' ? 'text-blue-400' : 'text-gray-300'"
+        class="font-medium transition-colors duration-200 cursor-pointer">Contact</a>
     </nav>
 
     <!-- Hamburger Button (Mobile) -->
-    <button class="md:hidden text-gray-300 text-2xl focus:outline-none"
-            (click)="toggleMenu()">
+    <button class="md:hidden text-gray-300 text-2xl focus:outline-none" (click)="toggleMenu()">
       <i class="fas" [ngClass]="isMenuOpen ? 'fa-times' : 'fa-bars'"></i>
     </button>
   </div>
@@ -39,25 +28,20 @@
   <div *ngIf="isMenuOpen" class="md:hidden bg-gray-800 border-t border-gray-700">
     <nav class="flex flex-col p-4 space-y-3">
       <a (click)="setActive('home'); toggleMenu()"
-         [ngClass]="activeSection === 'home' ? 'text-blue-400' : 'text-gray-300'"
-         class="font-medium transition-colors duration-200 cursor-pointer">
-        Home
-      </a>
+        [ngClass]="activeSection === 'home' ? 'text-blue-400' : 'text-gray-300'"
+        class="font-medium transition-colors duration-200 cursor-pointer">Home</a>
       <a (click)="setActive('work'); toggleMenu()"
-         [ngClass]="activeSection === 'work' ? 'text-blue-400' : 'text-gray-300'"
-         class="font-medium transition-colors duration-200 cursor-pointer">
-        Work
-      </a>
+        [ngClass]="activeSection === 'work' ? 'text-blue-400' : 'text-gray-300'"
+        class="font-medium transition-colors duration-200 cursor-pointer">Work</a>
       <a (click)="setActive('projects'); toggleMenu()"
-         [ngClass]="activeSection === 'projects' ? 'text-blue-400' : 'text-gray-300'"
-         class="font-medium transition-colors duration-200 cursor-pointer">
-        Projects
-      </a>
+        [ngClass]="activeSection === 'projects' ? 'text-blue-400' : 'text-gray-300'"
+        class="font-medium transition-colors duration-200 cursor-pointer">Projects</a>
+      <a (click)="setActive('blogs'); toggleMenu()"
+        [ngClass]="activeSection === 'blogs' ? 'text-blue-400' : 'text-gray-300'"
+        class="font-medium transition-colors duration-200 cursor-pointer">Blogs</a>
       <a (click)="setActive('contact'); toggleMenu()"
-         [ngClass]="activeSection === 'contact' ? 'text-blue-400' : 'text-gray-300'"
-         class="font-medium transition-colors duration-200 cursor-pointer">
-        Contact
-      </a>
+        [ngClass]="activeSection === 'contact' ? 'text-blue-400' : 'text-gray-300'"
+        class="font-medium transition-colors duration-200 cursor-pointer">Contact</a>
     </nav>
   </div>
 </header>
