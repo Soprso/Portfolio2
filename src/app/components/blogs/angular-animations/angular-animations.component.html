@@ -1,0 +1,137 @@
+<div class="min-h-screen bg-gray-900 text-gray-100 px-4 py-8 sm:px-6 lg:px-8">
+    <div class="max-w-4xl mx-auto">
+        <!-- Back Button -->
+        <button onclick="window.history.back()"
+            class="flex items-center text-sm text-gray-400 hover:text-white transition hover:cursor-pointer">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 256 256"
+                class="w-4 h-4 mr-1">
+                <path
+                    d="M174.6,202.83a8,8,0,0,1-11.31,0l-80-80a8,8,0,0,1,0-11.31l80-80a8,8,0,1,1,11.31,11.31L107.31,120l67.29,67.29A8,8,0,0,1,174.6,202.83Z" />
+            </svg>
+            Back to Blogs
+        </button>
+
+        <!-- Title -->
+        <h1 class="mt-6 text-3xl sm:text-4xl font-bold leading-tight text-white">
+            Mastering Angular Animations
+        </h1>
+
+        <!-- Meta Info -->
+        <div class="mt-2 flex flex-wrap items-center text-sm text-gray-400 gap-x-4 gap-y-1">
+            <span>📅 Aug 8, 2025</span>
+            <span>⏱ 12 min read</span>
+            <span>💡 Advanced Angular</span>
+        </div>
+
+        <!-- Hero Image -->
+        <div class="mt-8 overflow-hidden rounded-2xl shadow-lg">
+            <img src="angular-animations.png" alt="Angular Animations"
+                class="w-full h-48 sm:h-64 lg:h-80 object-cover hover:scale-105 transition-transform duration-500">
+        </div>
+
+        <!-- Content -->
+        <article class="prose prose-invert max-w-none mt-8 sm:mt-10 prose-p:leading-relaxed prose-headings:mt-6">
+            <p>
+                Animations are more than just “pretty effects.” In modern web applications, they guide the
+                user’s attention, create a sense of continuity, and provide feedback for user interactions.
+                Angular comes with a powerful animation system built on top of the
+                <code>@angular/animations</code> package, giving you full control over the flow and
+                feel of your UI.
+            </p>
+
+            <h2>🔹 Why Use Angular Animations?</h2>
+            <ul>
+                <li>Integrate directly with component state and lifecycle hooks.</li>
+                <li>Allow sequencing and staggering multiple animations.</li>
+                <li>Provide fine-grained control over easing, timing, and triggers.</li>
+                <li>Support route transition animations for smooth page navigation.</li>
+            </ul>
+
+            <h2>🔹 Getting Started</h2>
+            <p>First, install and import the animations module:</p>
+
+            <div>
+                <pre class="overflow-x-auto"><code class="language-bash">
+npm install @angular/animations
+</code></pre>
+
+                <pre class="overflow-x-auto"><code class="language-typescript">
+import &#123; BrowserAnimationsModule &#125; from '@angular/platform-browser/animations';
+
+@NgModule(&#123;
+  imports: [BrowserAnimationsModule, ...]
+&#125;)
+export class AppModule &#123;&#125;
+</code></pre>
+
+                <h3>Defining Your First Animation</h3>
+                <pre class="overflow-x-auto"><code class="language-typescript">
+import &#123; trigger, state, style, transition, animate &#125; from '@angular/animations';
+
+@Component(&#123;
+  selector: 'app-fade-example',
+  template: `&lt;div [@fadeInOut]=&quot;isVisible ? 'visible' : 'hidden'&quot;&gt;Hello&lt;/div&gt;`,
+  animations: [
+    trigger('fadeInOut', [
+      state('hidden', style(&#123; opacity: 0 &#125;)),
+      state('visible', style(&#123; opacity: 1 &#125;)),
+      transition('hidden &lt;=&gt; visible', animate('300ms ease-in-out'))
+    ])
+  ]
+&#125;)
+export class FadeExampleComponent &#123;
+  isVisible = true;
+&#125;
+</code></pre>
+
+            </div>
+            <h2>🔹 Best Practices</h2>
+            <ul>
+                <li>✅ Keep animations subtle—avoid making your UI feel sluggish.</li>
+                <li>✅ Test on lower-end devices to ensure performance holds up.</li>
+                <li>✅ Use <code>requestAnimationFrame</code> for custom animation logic.</li>
+                <li>✅ Group and reuse animation definitions for consistency.</li>
+            </ul>
+
+            <h2>🔹 Resources</h2>
+            <ul>
+                <li><a href="https://angular.dev/guide/animations" target="_blank">Angular Animations Official Docs</a>
+                </li>
+                <li><a href="https://material.angular.io/" target="_blank">Angular Material Motion</a></li>
+                <li><a href="https://cubic-bezier.com/" target="_blank">Easing Function Visualizer</a></li>
+            </ul>
+        </article>
+
+        <!-- Share Buttons -->
+        <div class="mt-8 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4">
+            <!-- Twitter/X Share -->
+            <button onclick="window.open(
+      `https://twitter.com/intent/tweet?url=${encodeURIComponent(window.location.href)}&text=${encodeURIComponent(document.title)}`,
+      '_blank'
+    )" class="group w-10 h-10 flex items-center hover:cursor-pointer justify-center rounded-full border border-blue-400 text-blue-400 relative overflow-hidden hover:text-gray-800 transition duration-200 shadow">
+                <span
+                    class="absolute left-0 top-0 h-full w-0 bg-blue-400 transition-all duration-700 group-hover:w-full z-0"></span>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1227" fill="currentColor"
+                    class="w-5 h-5 relative z-10">
+                    <path
+                        d="M714.163 0H897.91L583.022 522.568 1007 1227H684.245L432.993 809.061 155.013 1227H-27.753L302.872 687.688 0 0h329.594l210.752 371.116L714.163 0z" />
+                </svg>
+            </button>
+
+            <!-- LinkedIn Share -->
+            <button onclick="window.open(
+      `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(window.location.href)}`,
+      '_blank'
+    )" class="group w-10 h-10 flex items-center hover:cursor-pointer justify-center rounded-full border border-blue-400 text-blue-400 relative overflow-hidden hover:text-gray-800 transition duration-200 shadow">
+                <span
+                    class="absolute left-0 top-0 h-full w-0 bg-blue-400 transition-all duration-700 group-hover:w-full z-0"></span>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 448 512"
+                    class="w-5 h-5 relative z-10">
+                    <path
+                        d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.53 0 53.8 0 24.07 24.09-.5 53.79-.5s53.79 24.57 53.79 54.3c0 29.73-24.09 54.3-53.79 54.3zM447.9 448h-92.4V304.1c0-34.3-12.3-57.7-43.1-57.7-23.5 0-37.6 15.8-43.7 31.1-2.3 5.5-2.9 13.1-2.9 20.8V448h-92.4s1.2-269.7 0-297.1h92.4v42.1c12.3-19 34.3-46 83.6-46 61 0 106.9 39.8 106.9 125.2V448z" />
+                </svg>
+            </button>
+        </div>
+
+    </div>
+</div>

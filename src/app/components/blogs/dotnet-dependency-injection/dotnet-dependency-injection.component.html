@@ -1,0 +1,146 @@
+<div class="min-h-screen bg-gray-900 text-gray-100 px-4 py-8 sm:px-6 lg:px-8">
+  <div class="max-w-4xl mx-auto">
+    
+    <!-- Back Button -->
+    <button onclick="window.history.back()"
+      class="flex items-center text-sm text-gray-400 hover:text-white transition hover:cursor-pointer">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+        viewBox="0 0 256 256" class="w-4 h-4 mr-1">
+        <path
+          d="M174.6,202.83a8,8,0,0,1-11.31,0l-80-80a8,8,0,0,1,0-11.31l80-80a8,8,0,1,1,11.31,11.31L107.31,120l67.29,67.29A8,8,0,0,1,174.6,202.83Z" />
+      </svg>
+      Back to Blogs
+    </button>
+
+    <!-- Title -->
+    <h1 class="mt-6 text-3xl sm:text-4xl font-bold leading-tight text-white">
+      Understanding Dependency Injection in .NET
+    </h1>
+
+    <!-- Meta Info -->
+    <div class="mt-2 flex flex-wrap items-center text-sm text-gray-400 gap-x-4 gap-y-1">
+      <span>📅 Aug 8, 2025</span>
+      <span>⏱ 10 min read</span>
+      <span>💡 .NET Core / C#</span>
+    </div>
+
+    <!-- Hero Image -->
+    <div class="mt-8 overflow-hidden rounded-2xl shadow-lg">
+      <img src="dependency injection.png" alt="Dependency Injection in .NET"
+        class="w-full h-48 sm:h-64 lg:h-80 object-cover hover:scale-105 transition-transform duration-500">
+    </div>
+
+    <!-- Content -->
+    <article class="prose prose-invert max-w-none mt-8 sm:mt-10 prose-p:leading-relaxed prose-headings:mt-6">
+      <p>
+        Dependency Injection (DI) is one of the most important design patterns in modern .NET development.
+        It allows you to write cleaner, more testable, and maintainable code by decoupling object creation from object usage.
+      </p>
+
+      <h2>🔹 Why Use Dependency Injection?</h2>
+      <ul>
+        <li>Reduces tight coupling between classes.</li>
+        <li>Makes unit testing easier by allowing mock dependencies.</li>
+        <li>Improves code maintainability and scalability.</li>
+        <li>Promotes the SOLID principles, especially the Dependency Inversion Principle.</li>
+      </ul>
+
+      <h2>🔹 Basic Example in .NET</h2>
+      <p>In .NET Core, DI is built into the framework. Here’s a simple example:</p>
+
+<pre><code class="language-csharp">
+public interface IMessageService
+&#123;
+    void Send(string message);
+&#125;
+
+public class EmailMessageService : IMessageService
+&#123;
+    public void Send(string message)
+    &#123;
+        Console.WriteLine($&quot;Email sent: &#123;message&#125;&quot;);
+    &#125;
+&#125;
+
+public class NotificationController
+&#123;
+    private readonly IMessageService _messageService;
+
+    public NotificationController(IMessageService messageService)
+    &#123;
+        _messageService = messageService;
+    &#125;
+
+    public void Notify(string message)
+    &#123;
+        _messageService.Send(message);
+    &#125;
+&#125;
+</code></pre>
+
+
+      <h3>Registering Services in <code>Program.cs</code></h3>
+      <pre class="overflow-x-auto"><code class="language-csharp">
+var builder = WebApplication.CreateBuilder(args);
+
+// Register dependency
+builder.Services.AddScoped&lt;IMessageService, EmailMessageService&gt;();
+
+var app = builder.Build();
+app.Run();
+</code></pre>
+
+      <h2>🔹 Best Practices</h2>
+      <ul>
+        <li>✅ Prefer constructor injection over property injection.</li>
+        <li>✅ Keep registration organized (e.g., in extension methods).</li>
+        <li>✅ Avoid service locator patterns; let the framework handle injection.</li>
+        <li>✅ Use the correct lifetime (Scoped, Singleton, Transient) for each service.</li>
+      </ul>
+
+      <h2>🔹 Resources</h2>
+      <ul>
+        <li><a href="https://learn.microsoft.com/en-us/dotnet/core/extensions/dependency-injection" target="_blank">
+          Official .NET Dependency Injection Docs</a></li>
+        <li><a href="https://martinfowler.com/articles/injection.html" target="_blank">
+          Martin Fowler on Dependency Injection</a></li>
+        <li><a href="https://github.com/dotnet/docs" target="_blank">
+          .NET Docs GitHub Repository</a></li>
+      </ul>
+    </article>
+
+    <!-- Share Buttons -->
+    <div class="mt-8 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4">
+      <!-- Twitter/X Share -->
+      <button onclick="window.open(
+        `https://twitter.com/intent/tweet?url=${encodeURIComponent(window.location.href)}&text=${encodeURIComponent(document.title)}`,
+        '_blank'
+      )"
+      class="group w-10 h-10 flex items-center hover:cursor-pointer justify-center rounded-full border border-blue-400 text-blue-400 relative overflow-hidden hover:text-gray-800 transition duration-200 shadow">
+        <span
+          class="absolute left-0 top-0 h-full w-0 bg-blue-400 transition-all duration-700 group-hover:w-full z-0"></span>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1227" fill="currentColor"
+          class="w-5 h-5 relative z-10">
+          <path
+            d="M714.163 0H897.91L583.022 522.568 1007 1227H684.245L432.993 809.061 155.013 1227H-27.753L302.872 687.688 0 0h329.594l210.752 371.116L714.163 0z" />
+        </svg>
+      </button>
+
+      <!-- LinkedIn Share -->
+      <button onclick="window.open(
+        `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(window.location.href)}`,
+        '_blank'
+      )"
+      class="group w-10 h-10 flex items-center hover:cursor-pointer justify-center rounded-full border border-blue-400 text-blue-400 relative overflow-hidden hover:text-gray-800 transition duration-200 shadow">
+        <span
+          class="absolute left-0 top-0 h-full w-0 bg-blue-400 transition-all duration-700 group-hover:w-full z-0"></span>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+          viewBox="0 0 448 512" class="w-5 h-5 relative z-10">
+          <path
+            d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.53 0 53.8 0 24.07 24.09-.5 53.79-.5s53.79 24.57 53.79 54.3c0 29.73-24.09 54.3-53.79 54.3zM447.9 448h-92.4V304.1c0-34.3-12.3-57.7-43.1-57.7-23.5 0-37.6 15.8-43.7 31.1-2.3 5.5-2.9 13.1-2.9 20.8V448h-92.4s1.2-269.7 0-297.1h92.4v42.1c12.3-19 34.3-46 83.6-46 61 0 106.9 39.8 106.9 125.2V448z" />
+        </svg>
+      </button>
+    </div>
+
+  </div>
+</div>

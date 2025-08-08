@@ -1,0 +1,149 @@
+<div class="min-h-screen bg-gray-900 text-gray-100 px-4 py-8 sm:px-6 lg:px-8">
+  <div class="max-w-4xl mx-auto">
+    
+    <!-- Back Button -->
+    <button onclick="window.history.back()"
+      class="flex items-center text-sm text-gray-400 hover:text-white transition hover:cursor-pointer">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+        viewBox="0 0 256 256" class="w-4 h-4 mr-1">
+        <path
+          d="M174.6,202.83a8,8,0,0,1-11.31,0l-80-80a8,8,0,0,1,0-11.31l80-80a8,8,0,1,1,11.31,11.31L107.31,120l67.29,67.29A8,8,0,0,1,174.6,202.83Z" />
+      </svg>
+      Back to Blogs
+    </button>
+
+    <!-- Title -->
+    <h1 class="mt-6 text-3xl sm:text-4xl font-bold leading-tight text-white">
+      Understanding JavaScript Closures
+    </h1>
+
+    <!-- Meta Info -->
+    <div class="mt-2 flex flex-wrap items-center text-sm text-gray-400 gap-x-4 gap-y-1">
+      <span>📅 Aug 8, 2025</span>
+      <span>⏱ 8 min read</span>
+      <span>💡 JavaScript / ES6</span>
+    </div>
+
+    <!-- Hero Image -->
+    <div class="mt-8 overflow-hidden rounded-2xl shadow-lg">
+      <img src="js enclosures.png" alt="JavaScript Closures Illustration"
+        class="w-full h-48 sm:h-64 lg:h-80 object-cover hover:scale-105 transition-transform duration-500">
+    </div>
+
+    <!-- Content -->
+    <article class="prose prose-invert max-w-none mt-8 sm:mt-10 prose-p:leading-relaxed prose-headings:mt-6">
+      <p>
+        Closures are one of the most powerful features of JavaScript, yet they are also one of the most misunderstood. 
+        A closure allows a function to access variables from its outer scope even after that scope has closed.
+        They form the backbone of many JavaScript patterns such as data privacy, function factories, and callbacks.
+      </p>
+
+      <h2>🔹 What is a Closure?</h2>
+      <p>
+        A closure is created when a function is defined inside another function, giving the inner function access to the outer function’s variables.
+      </p>
+
+<pre><code class="language-javascript">
+function outerFunction(outerVariable) &#123;
+    return function innerFunction(innerVariable) &#123;
+        console.log(`Outer: $&#123;outerVariable&#125;, Inner: $&#123;innerVariable&#125;`);
+    &#125;
+&#125;
+
+const newFunction = outerFunction("outside");
+newFunction("inside"); 
+// Output: Outer: outside, Inner: inside
+</code></pre>
+
+
+      <h2>🔹 Why Use Closures?</h2>
+      <ul>
+        <li>Encapsulate and protect variables (data privacy).</li>
+        <li>Create factory functions that generate customized functions.</li>
+        <li>Maintain state between function calls without using global variables.</li>
+      </ul>
+
+      <h2>🔹 Practical Example</h2>
+      <p>Here’s an example of a closure for creating private counters:</p>
+
+function createCounter() &#123;
+    let count = 0;
+    return &#123;
+        increment: function() &#123;
+            count++;
+            console.log(count);
+        &#125;,
+        decrement: function() &#123;
+            count--;
+            console.log(count);
+        &#125;
+    &#125;;
+&#125;
+
+const counter = createCounter();
+counter.increment(); // 1
+counter.increment(); // 2
+counter.decrement(); // 1
+
+
+
+      <h3>Key Points:</h3>
+      <ul>
+        <li>✅ The <code>count</code> variable is not accessible from outside <code>createCounter()</code>.</li>
+        <li>✅ Only the returned methods have access to <code>count</code>.</li>
+        <li>✅ This is a simple way to achieve data encapsulation in JavaScript.</li>
+      </ul>
+
+      <h2>🔹 Common Use Cases</h2>
+      <ul>
+        <li>Event handler callbacks that need access to a specific scope.</li>
+        <li>Module patterns for organizing code.</li>
+        <li>Partial function application (currying).</li>
+      </ul>
+
+      <h2>🔹 Resources</h2>
+      <ul>
+        <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures" target="_blank">
+          MDN Web Docs on Closures</a></li>
+        <li><a href="https://javascript.info/closure" target="_blank">
+          JavaScript.info – Closures</a></li>
+        <li><a href="https://www.freecodecamp.org/news/closures-in-javascript/" target="_blank">
+          FreeCodeCamp – Understanding Closures</a></li>
+      </ul>
+    </article>
+
+    <!-- Share Buttons -->
+    <div class="mt-8 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4">
+      <!-- Twitter/X Share -->
+      <button onclick="window.open(
+        `https://twitter.com/intent/tweet?url=${encodeURIComponent(window.location.href)}&text=${encodeURIComponent(document.title)}`,
+        '_blank'
+      )"
+      class="group w-10 h-10 flex items-center hover:cursor-pointer justify-center rounded-full border border-blue-400 text-blue-400 relative overflow-hidden hover:text-gray-800 transition duration-200 shadow">
+        <span
+          class="absolute left-0 top-0 h-full w-0 bg-blue-400 transition-all duration-700 group-hover:w-full z-0"></span>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1227" fill="currentColor"
+          class="w-5 h-5 relative z-10">
+          <path
+            d="M714.163 0H897.91L583.022 522.568 1007 1227H684.245L432.993 809.061 155.013 1227H-27.753L302.872 687.688 0 0h329.594l210.752 371.116L714.163 0z" />
+        </svg>
+      </button>
+
+      <!-- LinkedIn Share -->
+      <button onclick="window.open(
+        `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(window.location.href)}`,
+        '_blank'
+      )"
+      class="group w-10 h-10 flex items-center hover:cursor-pointer justify-center rounded-full border border-blue-400 text-blue-400 relative overflow-hidden hover:text-gray-800 transition duration-200 shadow">
+        <span
+          class="absolute left-0 top-0 h-full w-0 bg-blue-400 transition-all duration-700 group-hover:w-full z-0"></span>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+          viewBox="0 0 448 512" class="w-5 h-5 relative z-10">
+          <path
+            d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.53 0 53.8 0 24.07 24.09-.5 53.79-.5s53.79 24.57 53.79 54.3c0 29.73-24.09 54.3-53.79 54.3zM447.9 448h-92.4V304.1c0-34.3-12.3-57.7-43.1-57.7-23.5 0-37.6 15.8-43.7 31.1-2.3 5.5-2.9 13.1-2.9 20.8V448h-92.4s1.2-269.7 0-297.1h92.4v42.1c12.3-19 34.3-46 83.6-46 61 0 106.9 39.8 106.9 125.2V448z" />
+        </svg>
+      </button>
+    </div>
+
+  </div>
+</div>

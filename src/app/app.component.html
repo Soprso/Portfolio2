@@ -1,7 +1,25 @@
+@if (!isDetailPage) {
+  <app-header></app-header>
 
-<app-header></app-header>
-<app-home></app-home>
-<app-work-section></app-work-section>
-<app-projects></app-projects>
-<app-blogs></app-blogs>
-<app-contact></app-contact>
+  @if (isLoading) {
+    <mat-progress-bar
+      mode="indeterminate"
+      color="accent"
+    ></mat-progress-bar>
+  }
+
+  <app-home></app-home>
+  <app-work-section></app-work-section>
+  <app-projects></app-projects>
+  <app-blogs></app-blogs>
+  <app-contact></app-contact>
+} @else {
+  @if (isLoading) {
+    <mat-progress-bar
+      mode="indeterminate"
+      color="accent"
+    ></mat-progress-bar>
+  }
+
+  <router-outlet></router-outlet>
+}
